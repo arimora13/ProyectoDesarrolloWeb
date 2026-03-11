@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login | Proyecto Web CRS Door</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <style>
+        body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;padding-top:76px;background:linear-gradient(180deg,#f8fbff 0%,#eef4ff 100%);}
+        .navbar-crs{background:rgba(15,23,42,.95);}
+        .auth-section{padding:90px 0;min-height:calc(100vh - 76px);}
+        .auth-card{max-width:500px;margin:0 auto;background:#fff;border-radius:18px;padding:32px;box-shadow:0 12px 35px rgba(15,23,42,.10);}
+        .footer-crs{background:#020617;color:#cbd5e1;padding:30px 0;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-crs fixed-top">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" th:href="@{/proyectoweb}">Proyecto Web</a>
+    </div>
+</nav>
+
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-card shadow">
+            <h2 class="text-center font-weight-bold mb-4">Iniciar sesión</h2>
+
+            <form th:action="@{/login}" method="post">
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="text" name="username" class="form-control" placeholder="Ingrese su correo" required/>
+                </div>
+
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña" required/>
+                </div>
+
+                <div th:if="${param.error}" class="alert alert-danger">Correo o contraseña incorrectos.</div>
+                <div th:if="${param.logout}" class="alert alert-success">Sesión cerrada correctamente.</div>
+
+                <button type="submit" class="btn btn-info btn-block text-white">Ingresar</button>
+            </form>
+
+            <div class="text-center mt-4">
+                <span>¿No tienes cuenta?</span>
+                <a th:href="@{/proyectoweb/registro}">Regístrate aquí</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-crs">
+    <div class="container text-center">
+        <small>© 2026 Proyecto Web CRS Door</small>
+    </div>
+</footer>
+</body>
+</html>
