@@ -8,11 +8,13 @@ package com.proyectoweb.proyectoweb.controller;
  *
  * @author Arianna Mora
  */
-import com.tiendaTech.tienda.service.ProductoService;
+
+import com.proyectoweb.proyectoweb.domain.Producto;
+import com.proyectoweb.proyectoweb.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ProyectoWebController {
@@ -32,6 +34,23 @@ public class ProyectoWebController {
         model.addAttribute("titulo", "Productos");
         model.addAttribute("productos", productoService.getProductosActivos());
         return "proyectoweb/productos";
+    }
+
+    @GetMapping("/proyectoweb/detalle-producto/{idProducto}")
+    public String detalleProducto(@PathVariable("idProducto") Long idProducto, Model model) {
+        Producto producto = new Producto();
+        producto.setIdProducto(idProducto);
+        producto = productoService.getProducto(producto);
+
+        model.addAttribute("titulo", "Detalle Producto");
+        model.addAttribute("producto", producto);
+        return "proyectoweb/detalleProducto";
+    }
+
+    @GetMapping("/proyectoweb/carrito")
+    public String carrito(Model model) {
+        model.addAttribute("titulo", "Carrito");
+        return "proyectoweb/carrito";
     }
 
     @GetMapping("/proyectoweb/servicios")

@@ -8,8 +8,8 @@ package com.proyectoweb.proyectoweb.controller;
  *
  * @author Arianna Mora
  */
-import com.tiendaTech.tienda.domain.Usuario;
-import com.tiendaTech.tienda.service.UsuarioService;
+import com.proyectoweb.proyectoweb.domain.Usuario;
+import com.proyectoweb.proyectoweb.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

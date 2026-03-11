@@ -3,20 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.proyectoweb.proyectoweb.service.impl;
-import com.proyectoweb.proyectoweb.domain.Usuario;
+
+
+/**
+ *
+ * @author Arianna Mora
+ */
+
 import com.proyectoweb.proyectoweb.dao.UsuarioDao;
+import com.proyectoweb.proyectoweb.domain.Usuario;
 import java.util.Collections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author Arianna Mora
- */
-public class UserDetailsServiceImpl {
- @Service
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired

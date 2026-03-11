@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Administrar usuarios | Proyecto Web CRS Door</title>
+    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/css/all.min.css}" rel="stylesheet"/>
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    <style>
+        body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;padding-top:76px;background:#f8fafc;color:#334155;}
+        .navbar-crs{background:rgba(15,23,42,.95);}
+        .page-banner{background:linear-gradient(135deg,#0f172a,#1e40af);color:#fff;padding:80px 0 60px;}
+        .section-crs{padding:85px 0;}
+        .table thead th{background:#0f172a;color:#fff;}
+        .footer-crs{background:#020617;color:#cbd5e1;padding:30px 0;}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark navbar-crs fixed-top">
+    <div class="container">
+        <a class="navbar-brand font-weight-bold" th:href="@{/proyectoweb}">
+            <i class="fas fa-door-open mr-2"></i>Proyecto Web
+        </a>
+    </div>
+</nav>
+
+<section class="page-banner">
+    <div class="container">
+        <h1 class="font-weight-bold">Administrar usuarios</h1>
+        <p>Listado de usuarios registrados en el sistema.</p>
+    </div>
+</section>
+
+<section class="section-crs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="mb-0">Listado de usuarios</h3>
+            <a th:href="@{/admin/usuarios/nuevo}" class="btn btn-info text-white rounded-pill px-4">
+                Nuevo usuario administrador
+            </a>
+        </div>
+
+        <div class="table-responsive bg-white shadow-sm rounded">
+            <table class="table table-bordered table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre completo</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th>Rol</th>
+                        <th>Activo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="u : ${usuarios}">
+                        <td th:text="${u.idUsuario}">1</td>
+                        <td th:text="${u.nombre + ' ' + u.apellidos}">Nombre completo</td>
+                        <td th:text="${u.correo}">correo@correo.com</td>
+                        <td th:text="${u.telefono}">0000-0000</td>
+                        <td th:text="${u.rol}">ROLE_USER</td>
+                        <td th:text="${u.activo ? 'Sí' : 'No'}">Sí</td>
+                        <td>
+                            <a th:href="@{/admin/usuarios/editar/{idUsuario}(idUsuario=${u.idUsuario})}"
+                               class="btn btn-warning btn-sm">
+                                Editar
+                            </a>
+                            <a th:href="@{/admin/usuarios/eliminar/{idUsuario}(idUsuario=${u.idUsuario})}"
+                               class="btn btn-danger btn-sm">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+
+                    <tr th:if="${#lists.isEmpty(usuarios)}">
+                        <td colspan="7" class="text-center">No hay usuarios registrados.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-crs">
+    <div class="container text-center">
+        <small>© 2026 Proyecto Web CRS Door</small>
+    </div>
+</footer>
+</body>
+</html>
