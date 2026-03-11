@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="general/proyectocrsdoor_fragmentos :: head"></head>
+<body>
+<header th:replace="general/proyectocrsdoor_fragmentos :: header"></header>
+ 
+        <section class="page-banner">
+<div class="container">
+<h1>Carrito</h1>
+<p>Resumen de productos, actualización de cantidades y total.</p>
+</div>
+</section>
+ 
+        <section class="section-crs">
+<div class="container">
+<div class="table-responsive">
+<table class="table table-bordered table-cart">
+<thead>
+<tr>
+<th>Producto</th>
+<th>Precio</th>
+<th>Cantidad</th>
+<th>Subtotal</th>
+<th>Acción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Puerta Cortafuego Industrial</td>
+<td>₡225000.00</td>
+<td><input type="number" value="1" min="1" class="form-control"/></td>
+<td>₡225000.00</td>
+<td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+</tr>
+<tr>
+<td>Barra Antipánico UL</td>
+<td>₡98000.00</td>
+<td><input type="number" value="2" min="1" class="form-control"/></td>
+<td>₡196000.00</td>
+<td><button class="btn btn-danger btn-sm">Eliminar</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+ 
+                <div class="row justify-content-end">
+<div class="col-lg-4">
+<div class="summary-box">
+<h4>Resumen</h4>
+<p><strong>Total productos:</strong> 3</p>
+<p><strong>Total compra:</strong> ₡421000.00</p>
+<button class="btn btn-crs btn-block">Proceder al pago</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+        <footer th:replace="general/proyectocrsdoor_fragmentos :: footer"></footer>
+</body>
+</html>
+ 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="general/proyectocrsdoor_fragmentos :: head"></head>
+<body>
+<header th:replace="general/proyectocrsdoor_fragmentos :: header"></header>
+ 
+        <section class="auth-section">
+<div class="container">
+<div class="auth-card auth-card-lg">
+<h2 class="mb-4 text-center">Registro de usuario</h2>
+<form>
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Nombre</label>
+<input type="text" class="form-control"/>
+</div>
+<div class="form-group col-md-6">
+<label>Apellidos</label>
+<input type="text" class="form-control"/>
+</div>
+</div>
+ 
+                        <div class="form-row">
+<div class="form-group col-md-6">
+<label>Correo electrónico</label>
+<input type="email" class="form-control"/>
+</div>
+<div class="form-group col-md-6">
+<label>Teléfono</label>
+<input type="text" class="form-control"/>
+</div>
+</div>
+ 
+                        <div class="form-group">
+<label>Dirección de obra</label>
+<input type="text" class="form-control"/>
+</div>
+ 
+                        <div class="form-row">
+<div class="form-group col-md-6">
+<label>Contraseña</label>
+<input type="password" class="form-control"/>
+</div>
+<div class="form-group col-md-6">
+<label>Confirmar contraseña</label>
+<input type="password" class="form-control"/>
+</div>
+</div>
+ 
+                        <button type="submit" class="btn btn-crs btn-block">Crear cuenta</button>
+</form>
+</div>
+</div>
+</section>
+ 
+        <footer th:replace="general/proyectocrsdoor_fragmentos :: footer"></footer>
+</body>
+</html>
+ 

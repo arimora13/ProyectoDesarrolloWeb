@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="general/proyectocrsdoor_fragmentos :: head"></head>
+<body>
+<header th:replace="general/proyectocrsdoor_fragmentos :: header"></header>
+ 
+        <section class="hero-crs">
+<div class="container">
+<div class="row align-items-center min-vh-100">
+<div class="col-lg-6">
+<span class="badge badge-crs mb-3">CRS Door & Hardware</span>
+<h1 class="hero-title">
+
+                            Soluciones profesionales en puertas, herrajes, instalación y pintura
+</h1>
+<p class="hero-text">
+
+                            Plataforma orientada a productos, servicios, proyectos, cotizaciones,
+
+                            contacto, carrito y apoyo al cliente, basada en todo lo contemplado
+
+                            en tu análisis funcional.
+</p>
+<div class="mt-4">
+<a th:href="@{/proyectocrsdoor/productos}" class="btn btn-crs btn-lg mr-2">Ver productos</a>
+<a th:href="@{/proyectocrsdoor/servicios}" class="btn btn-crs-outline-light btn-lg">Nuestros servicios</a>
+</div>
+</div>
+<div class="col-lg-6 mt-5 mt-lg-0">
+<div class="hero-box">
+<div class="row text-center">
+<div class="col-6 mb-4">
+<div class="mini-stat">
+<i class="fas fa-door-open mb-3"></i>
+<h5>Puertas</h5>
+<p>Metálicas, blindadas y comerciales</p>
+</div>
+</div>
+<div class="col-6 mb-4">
+<div class="mini-stat">
+<i class="fas fa-tools mb-3"></i>
+<h5>Herrajes</h5>
+<p>Certificados y de alto desempeño</p>
+</div>
+</div>
+<div class="col-6">
+<div class="mini-stat">
+<i class="fas fa-hammer mb-3"></i>
+<h5>Instalación</h5>
+<p>Servicio técnico especializado</p>
+</div>
+</div>
+<div class="col-6">
+<div class="mini-stat">
+<i class="fas fa-paint-roller mb-3"></i>
+<h5>Pintura</h5>
+<p>Acabados profesionales y duraderos</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+        <section class="section-crs">
+<div class="container">
+<div class="section-title text-center mb-5">
+<h2>Servicios principales</h2>
+<p>Todo lo necesario para el suministro, instalación y acabado profesional.</p>
+</div>
+<div class="row">
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="card-crs h-100 text-center">
+<i class="fas fa-door-closed card-icon"></i>
+<h4>Suministro de puertas</h4>
+<p>Puertas metálicas, blindadas, de emergencia y para entornos industriales.</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="card-crs h-100 text-center">
+<i class="fas fa-wrench card-icon"></i>
+<h4>Herrajes</h4>
+<p>Cerraduras, bisagras, barras antipánico y accesorios certificados.</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="card-crs h-100 text-center">
+<i class="fas fa-drafting-compass card-icon"></i>
+<h4>Instalación</h4>
+<p>Montaje técnico alineado con normativa y estándares de calidad.</p>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="card-crs h-100 text-center">
+<i class="fas fa-fill-drip card-icon"></i>
+<h4>Pintura</h4>
+<p>Recubrimientos, retoques y acabados limpios para larga duración.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+        <section class="section-crs section-soft">
+<div class="container">
+<div class="section-title text-center mb-5">
+<h2>Productos destacados</h2>
+<p>Catálogo orientado a visualización, detalle, disponibilidad y compra.</p>
+</div>
+<div class="row">
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="product-card">
+<div class="product-image">Imagen</div>
+<h5>Puerta Metálica Industrial</h5>
+<p class="product-price">₡185000.00</p>
+<p>Resistencia, seguridad y alto rendimiento.</p>
+<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block">Ver detalle</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="product-card">
+<div class="product-image">Imagen</div>
+<h5>Barra Antipánico UL</h5>
+<p class="product-price">₡95000.00</p>
+<p>Ideal para salidas de emergencia certificadas.</p>
+<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block">Ver detalle</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="product-card">
+<div class="product-image">Imagen</div>
+<h5>Bisagra Reforzada</h5>
+<p class="product-price">₡14500.00</p>
+<p>Diseñada para puertas de alta exigencia.</p>
+<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block">Ver detalle</a>
+</div>
+</div>
+<div class="col-md-6 col-lg-3 mb-4">
+<div class="product-card">
+<div class="product-image">Imagen</div>
+<h5>Cerradura Comercial</h5>
+<p class="product-price">₡32500.00</p>
+<p>Seguridad y confiabilidad para espacios de trabajo.</p>
+<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block">Ver detalle</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+        <section class="section-crs">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-lg-6 mb-4 mb-lg-0">
+<h2>Conócenos</h2>
+<p>
+
+                            En Crs Door and Hardware nos especializamos en la venta e instalación
+
+                            de productos de alta calidad diseñados para satisfacer las exigencias
+
+                            de proyectos arquitectónicos, comerciales e industriales.
+</p>
+<p>
+
+                            Ofrecemos puertas metálicas, puertas blindadas, herrajes certificados UL,
+
+                            chutes de basura, particiones sanitarias y servicios complementarios de pintura.
+</p>
+<a th:href="@{/proyectocrsdoor/conocenos}" class="btn btn-crs-outline">Leer más</a>
+</div>
+<div class="col-lg-6">
+<div class="feature-panel">
+<ul class="check-list">
+<li>Técnicos capacitados</li>
+<li>Instalación alineada a normativa</li>
+<li>Acabados profesionales</li>
+<li>Atención para proyectos comerciales e industriales</li>
+<li>Canal de contacto directo y cotización</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+ 
+        <section class="section-crs section-dark">
+<div class="container text-center">
+<h2 class="text-white">¿Necesitas una cotización?</h2>
+<p class="text-light mb-4">
+
+                    Solicita información de servicios, productos o proyectos instalados.
+</p>
+<a th:href="@{/proyectocrsdoor/cotizacion}" class="btn btn-light btn-lg mr-2">Solicitar cotización</a>
+<a href="https://www.instagram.com/crs.doorhardware" target="_blank" class="btn btn-crs-outline-light btn-lg">Redes sociales</a>
+</div>
+</section>
+ 
+        <footer th:replace="general/proyectocrsdoor_fragmentos :: footer"></footer>
+</body>
+</html>
+ 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="general/proyectocrsdoor_fragmentos :: head"></head>
+<body>
+<header th:replace="general/proyectocrsdoor_fragmentos :: header"></header>
+ 
+        <section class="auth-section">
+<div class="container">
+<div class="auth-card">
+<h2 class="mb-4 text-center">Iniciar sesión</h2>
+<form>
+<div class="form-group">
+<label>Correo electrónico</label>
+<input type="email" class="form-control" placeholder="Ingrese su correo"/>
+</div>
+<div class="form-group">
+<label>Contraseña</label>
+<input type="password" class="form-control" placeholder="Ingrese su contraseña"/>
+</div>
+<button type="submit" class="btn btn-crs btn-block">Ingresar</button>
+</form>
+ 
+                    <div class="text-center mt-3">
+<a href="#">¿Olvidó su contraseña?</a>
+</div>
+<div class="text-center mt-2">
+<span>¿No tiene cuenta?</span>
+<a th:href="@{/proyectocrsdoor/registro}">Registrarse</a>
+</div>
+</div>
+</div>
+</section>
+ 
+        <footer th:replace="general/proyectocrsdoor_fragmentos :: footer"></footer>
+</body>
+</html>
+ 
