@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/resources/templates/proyectoweb/admin/formProducto.html
+src/main/resources/templates/proyectoweb/admin/listadoProductos.html
+src/main/resources/templates/proyectoweb/admin/servicios.html

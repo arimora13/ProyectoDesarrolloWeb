@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title th:text="${titulo} + ' | Proyecto Web CRS Door'">Proyecto Web CRS Door</title>
+
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.min.css}" rel="stylesheet"/>
+        <link th:href="@{/css/proyectoweb.css}" rel="stylesheet"/>
+
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/proyectoweb.js}"></script>
+    </head>
+
+    <header th:fragment="header">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-crs fixed-top">
+            <div class="container">
+                <a class="navbar-brand font-weight-bold" th:href="@{/proyectoweb}">
+                    <i class="fas fa-door-open mr-2"></i>Proyecto Web
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false" aria-label="Mostrar menú">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ml-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proyectoweb}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proyectoweb/productos}">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proyectoweb/servicios}">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proyectoweb/proyectos}">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proyectoweb/conocenos}">Conócenos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/proyectoweb/contacto}">Contacto</a>
+                        </li>
+                        <li class="nav-item ml-lg-2">
+                            <a class="btn btn-outline-light btn-sm rounded-pill px-3" th:href="@{/login}">
+                                Iniciar sesión
+                            </a>
+                        </li>
+                        <li class="nav-item ml-lg-2 mt-2 mt-lg-0">
+                            <a class="btn btn-info btn-sm rounded-pill px-3 text-white" th:href="@{/proyectoweb/registro}">
+                                Registrarse
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <footer th:fragment="footer" class="footer-crs mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Proyecto Web CRS Door</h5>
+                    <p class="mb-0">
+                        Soluciones en puertas, herrajes, instalación y pintura
+                        para proyectos comerciales, arquitectónicos e industriales.
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a th:href="@{/proyectoweb}">Inicio</a></li>
+                        <li><a th:href="@{/proyectoweb/productos}">Productos</a></li>
+                        <li><a th:href="@{/proyectoweb/servicios}">Servicios</a></li>
+                        <li><a th:href="@{/proyectoweb/proyectos}">Proyectos</a></li>
+                        <li><a th:href="@{/proyectoweb/contacto}">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto</h5>
+                    <p class="mb-1">Hugo Bass Hernández</p>
+                    <p class="mb-1">
+                        <a href="tel:+50663787050">+506 6378 7050</a>
+                    </p>
+                    <p class="mb-1">
+                        <a href="mailto:gerentegeneral@crsdoorhardwarecr.com">
+                            gerentegeneral@crsdoorhardwarecr.com
+                        </a>
+                    </p>
+                    <p class="mb-0">San José, Costa Rica</p>
+                </div>
+            </div>
+
+            <hr class="bg-light"/>
+
+            <div class="text-center">
+                <small>© 2026 Proyecto Web CRS Door. Todos los derechos reservados.</small>
+            </div>
+        </div>
+    </footer>
+</html>
