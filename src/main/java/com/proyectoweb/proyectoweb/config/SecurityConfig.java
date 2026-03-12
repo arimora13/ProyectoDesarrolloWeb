@@ -6,7 +6,7 @@ package com.proyectoweb.proyectoweb.config;
 
 /**
  *
- * @author Arianna Mora
+ * @author GRUPO 7
  */
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
