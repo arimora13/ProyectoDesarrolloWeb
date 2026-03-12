@@ -9,13 +9,918 @@
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    
+
     <style>
-        body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;padding-top:76px;background:#f8fafc;color:#334155;}
-        .navbar-crs{background:rgba(15,23,42,.95);}
-        .page-banner{background:linear-gradient(135deg,#0f172a,#1e40af);color:#fff;padding:80px 0 60px;}
-        .section-crs{padding:85px 0;}
-        .table thead th{background:#0f172a;color:#fff;}
-        .footer-crs{background:#020617;color:#cbd5e1;padding:30px 0;}
+/*
+  CRS DOOR & HARDWARE — Paleta profesional
+  #780000 Rojo oscuro | #C1121F Rojo | #FDF0D5 Crema | #003049 Azul marino | #669BBC Azul acero
+*/
+
+:root {
+  --rojo-oscuro: #780000;
+  --rojo:        #C1121F;
+  --crema:       #FDF0D5;
+  --marino:      #003049;
+  --azul-acero:  #669BBC;
+  --blanco:      #ffffff;
+  --gris-claro:  #f7f3ee;
+  --gris-borde:  #e8e0d4;
+  --texto:       #1a1a1a;
+  --texto-suave: #4a4a4a;
+  --sombra:      0 8px 32px rgba(0,48,73,0.13);
+  --sombra-card: 0 4px 20px rgba(0,48,73,0.10);
+  --radio:       10px;
+  --radio-lg:    16px;
+}
+
+/* ───── BASE ───── */
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--texto);
+  background: var(--blanco);
+  padding-top: 80px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* ───── NAVBAR ───── */
+.navbar-crs {
+  background: var(--marino) !important;
+  box-shadow: 0 2px 16px rgba(0,48,73,0.25);
+  padding: 14px 0;
+  border-bottom: 3px solid var(--rojo);
+}
+
+.navbar-crs .navbar-brand {
+  color: var(--crema) !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+}
+
+.navbar-crs .navbar-brand i {
+  color: var(--rojo);
+}
+
+.navbar-crs .nav-link {
+  color: rgba(253,240,213,0.85) !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 8px 14px !important;
+  transition: color 0.2s;
+}
+
+.navbar-crs .nav-link:hover {
+  color: var(--crema) !important;
+}
+
+/* ───── BOTONES ───── */
+.btn-crs {
+  background: var(--rojo);
+  color: var(--crema) !important;
+  border: 2px solid var(--rojo);
+  border-radius: var(--radio);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 26px;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.btn-crs:hover {
+  background: var(--rojo-oscuro);
+  border-color: var(--rojo-oscuro);
+  transform: translateY(-1px);
+}
+
+.btn-crs-outline {
+  background: transparent;
+  color: var(--rojo) !important;
+  border: 2px solid var(--rojo);
+  border-radius: var(--radio);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 26px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-crs-outline:hover {
+  background: var(--rojo);
+  color: var(--crema) !important;
+}
+
+.btn-crs-outline-light {
+  background: transparent;
+  color: var(--crema) !important;
+  border: 2px solid var(--crema);
+  border-radius: var(--radio);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 10px 26px;
+  transition: background 0.2s;
+}
+
+.btn-crs-outline-light:hover {
+  background: rgba(253,240,213,0.15);
+}
+
+/* Navbar buttons */
+.navbar-crs .btn-crs-outline {
+  color: var(--crema) !important;
+  border-color: var(--crema);
+  padding: 6px 18px;
+}
+
+.navbar-crs .btn-crs {
+  padding: 6px 18px;
+}
+
+/* ───── HERO ───── */
+.hero-crs {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--marino) 0%, #00486e 60%, var(--rojo-oscuro) 100%);
+  color: var(--crema);
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-crs::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(193,18,31,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  line-height: 1.2;
+  color: var(--crema);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.hero-text {
+  color: rgba(253,240,213,0.80);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.badge-crs {
+  background: var(--rojo);
+  color: var(--crema);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
+.hero-box {
+  background: rgba(253,240,213,0.07);
+  border: 1px solid rgba(253,240,213,0.15);
+  border-radius: var(--radio-lg);
+  padding: 32px;
+}
+
+.mini-stat {
+  background: rgba(253,240,213,0.06);
+  border: 1px solid rgba(253,240,213,0.12);
+  border-radius: var(--radio);
+  padding: 24px 16px;
+  color: var(--crema);
+  transition: background 0.2s;
+}
+
+.mini-stat:hover {
+  background: rgba(193,18,31,0.18);
+}
+
+.mini-stat i {
+  font-size: 2rem;
+  color: var(--azul-acero);
+  display: block;
+}
+
+/* ───── SECCIONES ───── */
+.section-crs {
+  padding: 80px 0;
+  background: var(--blanco);
+}
+
+.section-soft {
+  background: var(--gris-claro) !important;
+}
+
+.section-dark {
+  background: var(--marino) !important;
+  color: var(--crema);
+  padding: 70px 0;
+}
+
+.section-title h2 {
+  color: var(--marino);
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.section-title h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 3px;
+  background: var(--rojo);
+  border-radius: 2px;
+}
+
+.section-title p {
+  color: var(--texto-suave);
+  font-size: 1.05rem;
+}
+
+/* ───── CARDS ───── */
+.card-crs {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 32px;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--gris-borde);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card-crs:hover {
+  box-shadow: var(--sombra);
+  transform: translateY(-2px);
+}
+
+.card-crs h3, .card-crs h4 {
+  color: var(--marino);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: var(--rojo);
+  margin-bottom: 16px;
+  display: block;
+}
+
+/* ───── FEATURE PANEL ───── */
+.feature-panel {
+  background: var(--crema);
+  border-radius: var(--radio-lg);
+  padding: 32px;
+  border-left: 5px solid var(--rojo);
+  box-shadow: var(--sombra-card);
+}
+
+.feature-panel h3, .feature-panel h4 {
+  color: var(--marino);
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.check-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,48,73,0.08);
+  color: var(--texto-suave);
+  font-size: 0.97rem;
+}
+
+.check-list li::before {
+  content: '✓';
+  color: var(--rojo);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* ───── PRODUCTOS ───── */
+.product-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--gris-borde);
+  padding: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.product-card:hover {
+  box-shadow: var(--sombra);
+  transform: translateY(-3px);
+}
+
+.product-card .card-body {
+  padding: 20px 22px;
+}
+
+.product-image,
+.product-image-placeholder {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, var(--crema), #ede3cc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marino);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--gris-borde);
+}
+
+.product-card h5 {
+  color: var(--marino);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.product-price {
+  color: var(--rojo);
+  font-weight: 700;
+  font-size: 1.15rem;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.product-price-lg {
+  color: var(--rojo);
+  font-weight: 700;
+  font-size: 1.8rem;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.product-badge {
+  background: var(--azul-acero);
+  color: var(--blanco);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.badge-crs-outline {
+  border: 1.5px solid var(--rojo);
+  color: var(--rojo);
+  background: transparent;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* ───── PAGE BANNER ───── */
+.page-banner {
+  background: linear-gradient(120deg, var(--marino) 0%, #00486e 70%, var(--rojo-oscuro) 100%);
+  color: var(--crema);
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--rojo-oscuro), var(--rojo), var(--azul-acero));
+}
+
+.page-banner h1 {
+  color: var(--crema);
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.page-banner p {
+  color: rgba(253,240,213,0.75);
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* ───── AUTH ───── */
+.auth-section {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(160deg, var(--crema) 0%, #eee5cc 100%);
+  padding: 80px 0;
+  display: flex;
+  align-items: center;
+}
+
+.auth-card {
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 40px;
+  box-shadow: var(--sombra);
+  border-top: 5px solid var(--rojo);
+}
+
+.auth-card-lg {
+  max-width: 700px !important;
+}
+
+.auth-card h2 {
+  color: var(--marino);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.auth-card a {
+  color: var(--rojo);
+  text-decoration: none;
+}
+
+.auth-card a:hover {
+  color: var(--rojo-oscuro);
+  text-decoration: underline;
+}
+
+/* ───── FORMS ───── */
+.form-control {
+  border: 1.5px solid var(--gris-borde);
+  border-radius: var(--radio);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: var(--texto);
+  background: var(--blanco);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-control:focus {
+  border-color: var(--azul-acero);
+  box-shadow: 0 0 0 3px rgba(102,155,188,0.18);
+  outline: none;
+}
+
+label {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--marino);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+/* ───── TABLES ───── */
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table thead th {
+  background: var(--marino);
+  color: var(--crema);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  padding: 14px 16px;
+}
+
+.table thead th:first-child { border-radius: var(--radio) 0 0 0; }
+.table thead th:last-child  { border-radius: 0 var(--radio) 0 0; }
+
+.table tbody tr td {
+  padding: 12px 16px;
+  border-color: var(--gris-borde);
+  vertical-align: middle;
+  color: var(--texto-suave);
+  font-size: 0.94rem;
+}
+
+.table-cart tbody tr:hover td,
+.table tbody tr:hover td {
+  background: rgba(253,240,213,0.4);
+}
+
+.table-cart input.form-control {
+  max-width: 90px;
+}
+
+/* ───── CARRITO ───── */
+.summary-box {
+  background: var(--crema);
+  border-radius: var(--radio-lg);
+  padding: 28px;
+  border: 1px solid var(--gris-borde);
+  box-shadow: var(--sombra-card);
+}
+
+.summary-box h4 {
+  color: var(--marino);
+  border-bottom: 2px solid var(--rojo);
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.resumen-box {
+  background: var(--crema);
+  border-radius: var(--radio-lg);
+  padding: 28px;
+  box-shadow: var(--sombra-card);
+  border-left: 4px solid var(--rojo);
+}
+
+.resumen-box h4 {
+  color: var(--marino);
+}
+
+/* ───── PROYECTOS ───── */
+.project-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--gris-borde);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  box-shadow: var(--sombra);
+  transform: translateY(-3px);
+}
+
+.project-image-box,
+.project-image-placeholder {
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(135deg, var(--marino) 0%, #00486e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crema);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-card h5 {
+  color: var(--marino);
+  padding: 16px 20px 4px;
+  margin: 0;
+}
+
+.project-card p {
+  color: var(--texto-suave);
+  padding: 0 20px 20px;
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+/* ───── FAQ ───── */
+.faq-card {
+  border: 1px solid var(--gris-borde);
+  border-radius: var(--radio);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.faq-header {
+  background: var(--crema);
+  padding: 18px 24px;
+  cursor: pointer;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  color: var(--marino);
+  font-size: 0.97rem;
+  border-left: 4px solid var(--rojo);
+  transition: background 0.2s;
+}
+
+.faq-header:hover {
+  background: #ede3cc;
+}
+
+.faq-body {
+  padding: 18px 24px;
+  color: var(--texto-suave);
+  background: var(--blanco);
+  border-top: 1px solid var(--gris-borde);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ───── COTIZACIÓN / DETALLE ───── */
+.detail-image {
+  width: 100%;
+  height: 340px;
+  background: linear-gradient(135deg, var(--crema), #ede3cc);
+  border-radius: var(--radio-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marino);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 2px solid var(--gris-borde);
+}
+
+.thumb-image {
+  height: 90px;
+  border-radius: var(--radio);
+  background: var(--crema);
+  border: 2px solid var(--gris-borde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--marino);
+  font-size: 0.78rem;
+  font-family: 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.thumb-image:hover {
+  border-color: var(--rojo);
+}
+
+/* ───── FILTROS ───── */
+.filter-bar {
+  background: var(--crema);
+  border-radius: var(--radio-lg);
+  padding: 24px;
+  border: 1px solid var(--gris-borde);
+  box-shadow: var(--sombra-card);
+}
+
+/* ───── ADMIN CARDS ───── */
+.card-admin {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  padding: 32px;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--gris-borde);
+  border-top: 4px solid var(--rojo);
+  text-align: center;
+  height: 100%;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card-admin:hover {
+  box-shadow: var(--sombra);
+  transform: translateY(-3px);
+}
+
+.card-admin i {
+  font-size: 2.5rem;
+  color: var(--marino);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.card-admin h4 {
+  color: var(--marino);
+}
+
+/* ───── SOCIAL BUTTONS ───── */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-btn {
+  background: var(--marino);
+  color: var(--crema) !important;
+  border-radius: var(--radio);
+  padding: 8px 18px;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  transition: background 0.2s;
+}
+
+.social-btn:hover {
+  background: var(--rojo);
+  color: var(--crema) !important;
+}
+
+/* ───── MAPA ───── */
+.map-box h4 {
+  color: var(--marino);
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.map-placeholder {
+  background: var(--crema);
+  border-radius: var(--radio-lg);
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-suave);
+  border: 2px dashed var(--gris-borde);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* ───── FOOTER ───── */
+.footer-crs {
+  background: var(--marino);
+  color: rgba(253,240,213,0.80);
+  padding: 60px 0 28px;
+  border-top: 4px solid var(--rojo);
+}
+
+.footer-crs h5 {
+  color: var(--crema);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.footer-crs p, .footer-crs li {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.footer-links {
+  padding: 0;
+}
+
+.footer-links li {
+  list-style: none;
+}
+
+.footer-crs a {
+  color: var(--azul-acero) !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-crs a:hover {
+  color: var(--crema) !important;
+}
+
+.footer-line {
+  border-color: rgba(102,155,188,0.25);
+  margin: 32px 0 20px;
+}
+
+.footer-crs small {
+  color: rgba(253,240,213,0.5);
+  font-size: 0.82rem;
+}
+
+/* ───── BOOTSTRAP OVERRIDES ───── */
+.btn-info {
+  background: var(--azul-acero) !important;
+  border-color: var(--azul-acero) !important;
+  color: var(--blanco) !important;
+}
+
+.btn-info:hover {
+  background: #5688a8 !important;
+  border-color: #5688a8 !important;
+}
+
+.btn-outline-primary {
+  color: var(--marino) !important;
+  border-color: var(--marino) !important;
+}
+
+.btn-outline-primary:hover {
+  background: var(--marino) !important;
+  color: var(--crema) !important;
+}
+
+.btn-outline-secondary {
+  color: var(--texto-suave) !important;
+  border-color: var(--gris-borde) !important;
+}
+
+.btn-outline-light {
+  color: var(--crema) !important;
+  border-color: rgba(253,240,213,0.6) !important;
+}
+
+.btn-outline-light:hover {
+  background: rgba(253,240,213,0.12) !important;
+}
+
+.badge-success { background: #2d6a4f !important; }
+.badge-danger  { background: var(--rojo-oscuro) !important; }
+.badge-info    { background: var(--azul-acero) !important; }
+.badge-warning { background: #b5850b !important; }
+
+.alert-danger {
+  background: rgba(193,18,31,0.08);
+  border-color: var(--rojo);
+  color: var(--rojo-oscuro);
+  border-radius: var(--radio);
+}
+
+.alert-success {
+  background: rgba(45,106,79,0.08);
+  border-color: #2d6a4f;
+  color: #1b4332;
+  border-radius: var(--radio);
+}
+
+.alert-warning {
+  background: rgba(181,133,11,0.08);
+  border-color: #b5850b;
+  color: #7c5c00;
+  border-radius: var(--radio);
+}
+
+.thead-dark th {
+  background: var(--marino) !important;
+  color: var(--crema) !important;
+}
+
+.card {
+  border-radius: var(--radio-lg) !important;
+  border: 1px solid var(--gris-borde) !important;
+}
+
+.card.shadow, .card.shadow-sm {
+  box-shadow: var(--sombra-card) !important;
+}
+
+/* ───── PRODUCT REAL IMAGE ───── */
+.product-real-image {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: var(--marino);
+    padding: 16px;
+    border-radius: var(--radio);
+    margin-top: 10px;
+    border-top: 2px solid var(--rojo);
+  }
+}
+
+@media (max-width: 767px) {
+  body { padding-top: 72px; }
+  .hero-crs { min-height: auto; padding: 100px 0 70px; }
+  .hero-title { font-size: 1.9rem; }
+  .page-banner h1 { font-size: 1.8rem; }
+  .section-crs { padding: 55px 0; }
+}
+
     </style>
 </head>
 <body>
