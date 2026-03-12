@@ -10,11 +10,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 /**
  *
  * @author Arianna Mora
  */
+
+
+
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 
@@ -25,41 +27,54 @@ public class UsuarioServiceImpl implements UsuarioService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    @Transactional(readOnly = true)
     public List<Usuario> getUsuarios() {
         return usuarioDao.findAll();
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Usuario getUsuario(Usuario usuario) {
         return usuarioDao.findById(usuario.getIdUsuario()).orElse(null);
     }
 
     @Override
-    @Transactional
     public void saveUsuario(Usuario usuario, boolean esAdmin) {
-        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
-        usuario.setActivo(true);
-        usuario.setRol(esAdmin ? "ROLE_ADMIN" : "ROLE_USER");
+
+        if (usuario.getIdUsuario() == null) {
+
+            usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+
+            if (esAdmin) {
+                usuario.setRol("ROLE_ADMIN");
+            } else {
+                usuario.setRol("ROLE_USER");
+            }
+
+            usuario.setActivo(true);
+
+        } else {
+
+            Usuario usuarioDB = usuarioDao.findById(usuario.getIdUsuario()).orElse(null);
+
+            if (usuario.getPassword() == null || usuario.getPassword().isEmpty()) {
+                usuario.setPassword(usuarioDB.getPassword());
+            } else {
+                usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
+            }
+
+        }
+
         usuarioDao.save(usuario);
     }
 
     @Override
-    @Transactional
     public void deleteUsuario(Usuario usuario) {
         usuarioDao.delete(usuario);
     }
 
     @Override
-    @Transactional(readOnly = true)
-    public Usuario buscarPorCorreo(String correo) {
-        return usuarioDao.findByCorreo(correo);
+    public boolean existeCorreo(String correo) {
+        Usuario usuario = usuarioDao.findByCorreo(correo);
+        return usuario != null;
     }
 
-    @Override
-    @Transactional(readOnly = true)
-    public boolean existeCorreo(String correo) {
-        return usuarioDao.existsByCorreo(correo);
-    }
 }

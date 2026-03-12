@@ -15,15 +15,14 @@ import java.util.List;
 
 public interface UsuarioService {
 
-    List<Usuario> getUsuarios();
+    public List<Usuario> getUsuarios();
 
-    Usuario getUsuario(Usuario usuario);
+    public Usuario getUsuario(Usuario usuario);
 
-    void saveUsuario(Usuario usuario, boolean esAdmin);
+    public void saveUsuario(Usuario usuario, boolean esAdmin);
 
-    void deleteUsuario(Usuario usuario);
+    public void deleteUsuario(Usuario usuario);
 
-    Usuario buscarPorCorreo(String correo);
+    public boolean existeCorreo(String correo);
 
-    boolean existeCorreo(String correo);
 }
