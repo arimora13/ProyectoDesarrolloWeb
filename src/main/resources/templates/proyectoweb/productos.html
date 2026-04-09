@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+     xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -17,8 +18,13 @@
   #780000 Rojo oscuro | #C1121F Rojo | #FDF0D5 Crema | #003049 Azul marino | #669BBC Azul acero
 */
 
-:root {
-  --rojo-oscuro: #780000;
+/* ───── BASE ───── */
+
+:root{
+--azul-claro:#003049;
+--azul-brillante:#669BBC;
+--blanco:#FFFFFF;
+--rojo-oscuro: #780000;
   --rojo:        #C1121F;
   --crema:       #FDF0D5;
   --marino:      #003049;
@@ -34,52 +40,109 @@
   --radio-lg:    16px;
 }
 
-/* ───── BASE ───── */
-body {
-  font-family: 'Georgia', 'Times New Roman', serif;
-  color: var(--texto);
-  background: var(--blanco);
-  padding-top: 80px;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+body{
+font-family:'Lato',sans-serif;
+background:var(--azul-claro);
+padding-top:25px;
+margin:0;
+color:#2c2c2c;
 }
 
 /* ───── NAVBAR ───── */
-.navbar-crs {
-  background: var(--marino) !important;
-  box-shadow: 0 2px 16px rgba(0,48,73,0.25);
-  padding: 14px 0;
-  border-bottom: 3px solid var(--rojo);
+
+.navbar-crs{
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+padding:10px 0;
 }
 
-.navbar-crs .navbar-brand {
-  color: var(--crema) !important;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-weight: 700;
-  font-size: 1.25rem;
-  letter-spacing: 0.03em;
+.navbar-brand{
+font-weight:700;
+font-size:1.25rem;
+color:#669BBC!important;
+gap:25px;
+font-size: 30px;
 }
 
-.navbar-crs .navbar-brand i {
-  color: var(--rojo);
+.navbar-collapse{
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-.navbar-crs .nav-link {
-  color: rgba(253,240,213,0.85) !important;
-  font-family: 'Trebuchet MS', sans-serif;
-  font-size: 0.88rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 8px 14px !important;
-  transition: color 0.2s;
+.navbar-nav{
+display:flex;
+align-items:center;
+gap:24px;
+cursor: pointer;
+ flex-wrap: nowrap;
+ list-style: none;
+ font-size: 23px;
 }
 
-.navbar-crs .nav-link:hover {
-  color: var(--crema) !important;
+.nav-link{
+font-weight:600;
+color:#333!important;
+padding:6px 12px!important;
+border-radius:6px;
+transition:0.25s;
+}
+
+.nav-link:hover{
+color:#669BBC !important;
+background:#E9F1FA;
+}
+
+/* Navbar buttons */
+
+.btn-login{
+border:1px solid #669BBC;
+color:#669BBC;
+padding:5px 14px;
+border-radius:20px;
+font-size:0.85rem;
+font-weight:600;
+cursor: pointer;
+white-space: nowrap; 
+ font-size: 23px;
+}
+
+.btn-login:hover{
+background:#669BBC;
+color:white;
+ font-size: 23px;
+ cursor: pointer;
+white-space: nowrap; 
+}
+
+.btn-register{
+background:#00ABE4;
+color:white;
+padding:5px 14px;
+border-radius:18px;
+font-size:0.85rem;
+font-weight:600;
+font-size: 23px;
+}
+
+.btn-register:hover{
+background:#0094c8;
+font-size: 23px;
+}
+
+
+/* ───── BOTONES ───── */
+
+.btn-primary{
+background:#00ABE4;
+border:none;
+border-radius:18px;
+padding:8px 18px;
+font-weight:600;
+}
+
+.btn-primary:hover{
+background:#0096C7;
 }
 
 /* ───── BOTONES ───── */
@@ -140,16 +203,6 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(253,240,213,0.15);
 }
 
-/* Navbar buttons */
-.navbar-crs .btn-crs-outline {
-  color: var(--crema) !important;
-  border-color: var(--crema);
-  padding: 6px 18px;
-}
-
-.navbar-crs .btn-crs {
-  padding: 6px 18px;
-}
 
 /* ───── HERO ───── */
 .hero-crs {
@@ -924,23 +977,63 @@ label {
     </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark navbar-crs fixed-top">
-    <div class="container">
-        <a class="navbar-brand font-weight-bold" th:href="@{/proyectoweb}"><i class="fas fa-door-open mr-2"></i>Proyecto Web</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menuPrincipal"><span class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="menuPrincipal">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" th:href="@{/proyectoweb}">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/proyectoweb/productos}">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/proyectoweb/servicios}">Servicios</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/proyectoweb/proyectos}">Proyectos</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/proyectoweb/conocenos}">Conócenos</a></li>
-                <li class="nav-item"><a class="nav-link" th:href="@{/proyectoweb/contacto}">Contacto</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<nav class="navbar navbar-expand-lg navbar-crs fixed-top">
 
+<div class="container">
+
+
+
+<div class="collapse navbar-collapse justify-content-center" id="menuPrincipal">
+
+<ul class="navbar-nav align-items-center">
+    
+    <a class="navbar-brand" th:href="@{/proyectoweb}">
+<i class="fas fa-door-open"></i> Proyecto Web
+</a>
+
+<li class="nav-item">
+<a class="nav-link" th:href="@{/proyectoweb}">Inicio</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" th:href="@{/proyectoweb/productos}">Productos</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" th:href="@{/proyectoweb/servicios}">Servicios</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" th:href="@{/proyectoweb/proyectos}">Proyectos</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" th:href="@{/proyectoweb/conocenos}">Conócenos</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" th:href="@{/proyectoweb/contacto}">Contacto</a>
+</li>
+
+<li class="nav-item" sec:authorize="hasRole('ADMIN')">
+<a class="nav-link" th:href="@{/admin}">Edición</a>
+</li>
+
+<li class="nav-item ml-lg-2">
+<a class="btn btn-register" th:href="@{/proyectoweb/registro}">Registrarse</a>
+</li>
+
+<li class="nav-item ml-lg-3">
+<a class="btn btn-login" th:href="@{/login}">Iniciar sesión</a>
+</li>
+
+
+
+</ul>
+
+</div>
+</div>
+</nav>
 <section class="page-banner">
     <div class="container">
         <h1 class="font-weight-bold">Productos</h1>
