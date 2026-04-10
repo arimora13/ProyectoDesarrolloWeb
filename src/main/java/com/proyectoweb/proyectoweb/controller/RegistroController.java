@@ -6,7 +6,7 @@ package com.proyectoweb.proyectoweb.controller;
 
 /**
  *
- * @author Arianna Mora
+ * @author Grupo 7
  */
 import com.proyectoweb.proyectoweb.domain.Usuario;
 import com.proyectoweb.proyectoweb.service.UsuarioService;

@@ -969,6 +969,9 @@ label {
                                 Registrarse
                             </a>
                         </li>
+                        <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                            <a class="nav-link" th:href="@{/admin}">Administración</a>
+                         </li>   
                     </ul>
                 </div>
             </div>

@@ -936,6 +936,7 @@ label {
 <div class="container">
 <a class="navbar-brand d-flex align-items-center" th:href="@{/proyectocrsdoor}">
 <i class="fas fa-door-open mr-2"></i>
+
 <span>Proyecto CRS Door</span>
 </a>
  
@@ -948,6 +949,7 @@ label {
                 <div class="collapse navbar-collapse" id="navbarCrs">
 <ul class="navbar-nav ml-auto align-items-lg-center">
 <li class="nav-item">
+    
 <a class="nav-link" th:href="@{/proyectocrsdoor}">Inicio</a>
 </li>
 <li class="nav-item">
@@ -978,6 +980,10 @@ label {
 </li>
 <li class="nav-item ml-lg-2 mt-2 mt-lg-0">
 <a class="btn btn-crs btn-sm" th:href="@{/proyectocrsdoor/cotizacion}">Cotizar</a>
+</li>
+
+<li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+    <a class="nav-link" th:href="@{/admin}">Administración</a>
 </li>
 </ul>
 </div>

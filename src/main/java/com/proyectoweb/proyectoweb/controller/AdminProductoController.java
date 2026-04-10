@@ -6,8 +6,9 @@ package com.proyectoweb.proyectoweb.controller;
 
 /**
  *
- * @author Arianna Mora
+ * @author Grupo 7
  */
+import org.springframework.security.access.prepost.PreAuthorize;
 import com.proyectoweb.proyectoweb.domain.Producto;
 import com.proyectoweb.proyectoweb.service.CategoriaService;
 import com.proyectoweb.proyectoweb.service.ProductoService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/admin/productos")
+@PreAuthorize("hasRole('ADMIN')")
 public class AdminProductoController {
 
     @Autowired
