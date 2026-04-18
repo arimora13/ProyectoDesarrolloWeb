@@ -1026,8 +1026,15 @@ label {
 <a class="nav-link" th:href="@{/proyectoweb/contacto}">Contacto</a>
 </li>
 
+
+        <div class="ml-auto">
+            <a th:href="@{/carrito/ver}" class="nav-link text-white">
+                <i class="fas fa-shopping-cart"></i> Carrito
+            </a>
+        </div>
+
 <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-<a class="nav-link" th:href="@{/admin}">Edición</a>
+<a class="nav-link" th:href="@{/admin/dashboard}">Edición</a>
 </li>
 
 <li class="nav-item ml-lg-2">

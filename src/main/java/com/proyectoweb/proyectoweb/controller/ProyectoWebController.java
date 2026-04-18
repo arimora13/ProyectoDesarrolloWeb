@@ -6,7 +6,7 @@ package com.proyectoweb.proyectoweb.controller;
 
 /**
  *
- * @author Arianna Mora
+ * @author Grupo 7
  */
 
 import com.proyectoweb.proyectoweb.domain.Producto;
@@ -21,6 +21,9 @@ public class ProyectoWebController {
 
     @Autowired
     private ProductoService productoService;
+    
+    @Autowired
+    private com.proyectoweb.proyectoweb.service.CategoriaService categoriaService;
 
     @GetMapping("/proyectoweb")
     public String inicio(Model model) {
@@ -30,9 +33,19 @@ public class ProyectoWebController {
     }
 
     @GetMapping("/proyectoweb/productos")
-    public String productos(Model model) {
+    public String productos(
+        @RequestParam(required = false) String nombre,
+        @RequestParam(required = false) Boolean activo,
+        @RequestParam(required = false) Long categoria,
+        Model model) {
+
         model.addAttribute("titulo", "Productos");
-        model.addAttribute("productos", productoService.getProductosActivos());
+
+        var productos = productoService.buscarProductos(nombre, activo, categoria);
+
+        model.addAttribute("productos", productos);
+        model.addAttribute("categorias", categoriaService.getCategorias());
+
         return "proyectoweb/productos";
     }
 

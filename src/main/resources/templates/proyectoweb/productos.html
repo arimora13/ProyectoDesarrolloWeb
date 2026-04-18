@@ -13,12 +13,7 @@
     
 
     <style>
-/*
-  CRS DOOR & HARDWARE — Paleta profesional
-  #780000 Rojo oscuro | #C1121F Rojo | #FDF0D5 Crema | #003049 Azul marino | #669BBC Azul acero
-*/
 
-/* ───── BASE ───── */
 
 :root{
 --azul-claro:#003049;
@@ -1014,9 +1009,13 @@ label {
 <li class="nav-item">
 <a class="nav-link" th:href="@{/proyectoweb/contacto}">Contacto</a>
 </li>
-
+<li class="nav-item">
+    <a class="nav-link" th:href="@{/carrito/ver}">
+        <i class="fas fa-shopping-cart"></i> Carrito
+    </a>
+</li>
 <li class="nav-item" sec:authorize="hasRole('ADMIN')">
-<a class="nav-link" th:href="@{/admin}">Edición</a>
+<a class="nav-link" th:href="@{/admin/dashboard}">Edición</a>
 </li>
 
 <li class="nav-item ml-lg-2">
@@ -1037,17 +1036,60 @@ label {
 <section class="page-banner">
     <div class="container">
         <h1 class="font-weight-bold">Productos</h1>
-        <p>Catálogo cargado desde base de datos.</p>
+        <p>Catálogo de Herrajes</p>
     </div>
 </section>
+
+<form th:action="@{/proyectoweb/productos}" method="get" class="mb-4">
+
+<div class="form-row">
+
+<div class="col-md-4">
+<input type="text"
+       class="form-control"
+       name="nombre"
+       placeholder="Buscar producto por nombre">
+</div>
+
+<div class="col-md-3">
+<select name="activo" class="form-control">
+
+<option value="">Disponibilidad</option>
+<option value="true">Disponible</option>
+<option value="false">Agotado</option>
+
+</select>
+</div>
+
+<div class="col-md-3">
+<select name="categoria" class="form-control">
+
+<option value="">Todas las categorías</option>
+
+<option th:each="c : ${categorias}"
+        th:value="${c.idCategoria}"
+        th:text="${c.nombre}">
+</option>
+
+</select>
+</div>
+
+<div class="col-md-2">
+<button type="submit" class="btn btn-primary btn-block">
+Buscar
+</button>
+</div>
+
+</div>
+
+</form>
 
 <section class="section-crs">
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-4 mb-4" th:each="p : ${productos}">
                 <div class="card product-card h-100 shadow-sm border-0">
-                    <img th:if="${p.imagen != null and p.imagen != ''}" th:src="@{${p.imagen}}" class="card-img-top product-real-image" alt="Producto"/>
-                    <div th:if="${p.imagen == null or p.imagen == ''}" class="product-image-placeholder">Sin imagen</div>
+                   
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title" th:text="${p.nombre}">Nombre</h5>
                         <p class="card-text text-muted" th:text="${p.descripcion}">Descripción</p>
@@ -1058,8 +1100,11 @@ label {
                         <span class="badge badge-success mb-3" th:if="${p.stock > 0}">Disponible</span>
                         <span class="badge badge-danger mb-3" th:if="${p.stock <= 0}">Agotado</span>
                         <div class="mt-auto">
-                            <a href="#" class="btn btn-info btn-block text-white mb-2">Ver detalle</a>
-                            <button class="btn btn-outline-primary btn-block" th:disabled="${p.stock <= 0}">Agregar al carrito</button>
+                          <button class="btn btn-outline-primary btn-block"
+        th:disabled="${p.stock <= 0}"
+        th:onclick="'window.location.href=\'/carrito/agregar/' + ${p.idProducto} + '\''">
+    Agregar al carrito
+</button>
                         </div>
                     </div>
                 </div>
