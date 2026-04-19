@@ -40,6 +40,10 @@ body {
   background: var(--blanco);
   padding-top: 80px;
 }
+.container{
+max-width:1200px;
+margin:auto;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
@@ -1002,6 +1006,10 @@ label {
                         <button type="submit" class="btn btn-info text-white rounded-pill px-4">
                             Guardar usuario
                         </button>
+                        <a th:href="@{/admin/categorias}"
+                             class="btn btn-secondary">
+                               Cancelar
+                        </a>
                     </div>
                 </form>
             </div>

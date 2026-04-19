@@ -34,6 +34,11 @@
   --radio-lg:    16px;
 }
 
+.container{
+max-width:1200px;
+margin:auto;
+}
+
 /* ───── BASE ───── */
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
@@ -980,6 +985,10 @@ label {
                             </a>
                         </td>
                     </tr>
+                    
+                    <a th:href="@{/admin/dashboard}" class="btn btn-secondary">
+                            Volver
+                    </a>
 
                     <tr th:if="${#lists.isEmpty(usuarios)}">
                         <td colspan="7" class="text-center">No hay usuarios registrados.</td>
