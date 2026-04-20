@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Servicios | Proyecto Web CRS Door</title>
+    <title>Formulario categoria | Proyecto Web CRS Door</title>
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-    
 
-        <style>
+
+    <style>
 /*
   CRS DOOR & HARDWARE — Paleta profesional
   #780000 Rojo oscuro | #C1121F Rojo | #FDF0D5 Crema | #003049 Azul marino | #669BBC Azul acero
 */
 
-/* ───── BASE ───── */
-
-:root{
---azul-claro:#003049;
---azul-brillante:#669BBC;
---blanco:#FFFFFF;
---rojo-oscuro: #780000;
+:root {
+  --rojo-oscuro: #780000;
   --rojo:        #C1121F;
   --crema:       #FDF0D5;
   --marino:      #003049;
@@ -39,116 +38,57 @@
   --radio-lg:    16px;
 }
 
-body{
-font-family:'Lato',sans-serif;
-background:#095279;
-padding-top:25px;
-margin:0;
-color:#2c2c2c;
-justify-content: center;
+/* ───── BASE ───── */
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: var(--texto);
+  background: var(--blanco);
+  padding-top: 80px;
 }
 .container{
 max-width:1200px;
 margin:auto;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
 /* ───── NAVBAR ───── */
-
-.navbar-crs{
-background:white;
-box-shadow:0 2px 8px rgba(0,0,0,0.08);
-padding:10px 0;
+.navbar-crs {
+  background: var(--marino) !important;
+  box-shadow: 0 2px 16px rgba(0,48,73,0.25);
+  padding: 14px 0;
+  border-bottom: 3px solid var(--rojo);
 }
 
-.navbar-brand{
-font-weight:700;
-font-size:1.25rem;
-color:#669BBC!important;
-gap:30px;
-font-size: 30px;
-white-space: nowrap; 
+.navbar-crs .navbar-brand {
+  color: var(--crema) !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
 }
 
-.navbar-collapse{
-display:flex;
-justify-content:space-between;
-align-items:center;
+.navbar-crs .navbar-brand i {
+  color: var(--rojo);
 }
 
-.navbar-nav{
-display:flex;
-align-items:center;
-gap:24px;
-cursor: pointer;
- flex-wrap: nowrap;
- list-style: none;
- font-size: 23px;
+.navbar-crs .nav-link {
+  color: rgba(253,240,213,0.85) !important;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 8px 14px !important;
+  transition: color 0.2s;
 }
 
-.nav-link{
-font-weight:600;
-color:#333!important;
-padding:6px 12px!important;
-border-radius:6px;
-transition:0.25s;
+.navbar-crs .nav-link:hover {
+  color: var(--crema) !important;
 }
-
-.nav-link:hover{
-color:#669BBC !important;
-background:#E9F1FA;
-}
-
-/* Navbar buttons */
-
-.btn-login{
-border:1px solid #669BBC;
-color:#669BBC;
-padding:5px 14px;
-border-radius:20px;
-font-size:0.85rem;
-font-weight:600;
-cursor: pointer;
-white-space: nowrap; 
- font-size: 23px;
-}
-
-.btn-login:hover{
-background:#669BBC;
-color:white;
- font-size: 23px;
- cursor: pointer;
-white-space: nowrap; 
-}
-
-.btn-register{
-background:#00ABE4;
-color:white;
-padding:5px 14px;
-border-radius:18px;
-font-size:0.85rem;
-font-weight:600;
-font-size: 23px;
-}
-
-.btn-register:hover{
-background:#0094c8;
-font-size: 23px;
-}
-
-/* ───── BOTONES ───── */
-
-.btn-primary{
-background:#00ABE4;
-border:none;
-border-radius:18px;
-padding:8px 18px;
-font-weight:600;
-}
-
-.btn-primary:hover{
-background:#0096C7;
-}
-
 
 /* ───── BOTONES ───── */
 .btn-crs {
@@ -208,12 +148,21 @@ background:#0096C7;
   background: rgba(253,240,213,0.15);
 }
 
+/* Navbar buttons */
+.navbar-crs .btn-crs-outline {
+  color: var(--crema) !important;
+  border-color: var(--crema);
+  padding: 6px 18px;
+}
 
+.navbar-crs .btn-crs {
+  padding: 6px 18px;
+}
 
 /* ───── HERO ───── */
 .hero-crs {
   min-height: 100vh;
-  background:linear-gradient(135deg, var(--marino) 0%, #095279 60%, var(--rojo-oscuro) 100%);;
+  background: linear-gradient(135deg, var(--marino) 0%, #00486e 60%, var(--rojo-oscuro) 100%);
   color: var(--crema);
   padding: 80px 0;
   display: flex;
@@ -283,44 +232,10 @@ background:#0096C7;
   display: block;
 }
 
-.hero-crs .container{
-max-width:1200px;
-margin:auto;
-}
-
-.hero-crs .row{
-align-items:center;
-justify-content:center;
-}
-
-.hero-title{
-font-size:2.8rem;
-font-weight:700;
-max-width:520px;
-}
-
-.hero-text{
-max-width:520px;
-}
-
 /* ───── SECCIONES ───── */
-.section-crs{
-padding:90px 0;
-margin:auto;
-}
-
-.section-crs .row{
-justify-content:center;
-}
-.section-title h2{
-font-size:2.2rem;
-font-weight:700;
-margin-bottom:10px;
-}
-
-.section-title p{
-max-width:600px;
-margin:auto;
+.section-crs {
+  padding: 80px 0;
+  background: var(--blanco);
 }
 
 .section-soft {
@@ -416,18 +331,23 @@ margin:auto;
 }
 
 /* ───── PRODUCTOS ───── */
-.product-card{
-background:white;
-border-radius:16px;
-overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-border:none;
-transition:0.25s;
+.product-card {
+  background: var(--blanco);
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--gris-borde);
+  padding: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.product-card:hover{
-transform:translateY(-6px);
-box-shadow:0 14px 35px rgba(0,0,0,0.12);
+.product-card:hover {
+  box-shadow: var(--sombra);
+  transform: translateY(-3px);
+}
+
+.product-card .card-body {
+  padding: 20px 22px;
 }
 
 .product-image,
@@ -693,7 +613,6 @@ label {
   color: var(--marino);
   padding: 16px 20px 4px;
   margin: 0;
-  font-size: 21px;
 }
 
 .project-card p {
@@ -735,13 +654,6 @@ label {
   font-size: 0.95rem;
   line-height: 1.7;
 }
-
-/* ───── SECCIONES ───── */
-.section-crs {
-  padding: 80px 0;
-  background: var(--blanco);
-}
-
 
 /* ───── COTIZACIÓN / DETALLE ───── */
 .detail-image {
@@ -865,27 +777,59 @@ label {
 }
 
 /* ───── FOOTER ───── */
-.footer-crs{
-background:var(--marino);
-color:rgba(253,240,213,0.85);
-padding:70px 0 30px;
-text-align:center;
+.footer-crs {
+  background: var(--marino);
+  color: rgba(253,240,213,0.80);
+  padding: 60px 0 28px;
+  border-top: 4px solid var(--rojo);
 }
 
-.footer-crs .row{
-justify-content:center;
+.footer-crs h5 {
+  color: var(--crema);
+  font-family: 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
 }
 
-.footer-crs a{
-color:var(--azul-acero)!important;
+.footer-crs p, .footer-crs li {
+  font-size: 0.9rem;
+  line-height: 1.8;
 }
 
-.footer-crs a:hover{
-color:var(--crema)!important;
+.footer-links {
+  padding: 0;
 }
+
+.footer-links li {
+  list-style: none;
+}
+
+.footer-crs a {
+  color: var(--azul-acero) !important;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-crs a:hover {
+  color: var(--crema) !important;
+}
+
+.footer-line {
+  border-color: rgba(102,155,188,0.25);
+  margin: 32px 0 20px;
+}
+
+.footer-crs small {
+  color: rgba(253,240,213,0.5);
+  font-size: 0.82rem;
+}
+
 /* ───── BOOTSTRAP OVERRIDES ───── */
 .btn-info {
-  font-size: 22px;
+  background: var(--azul-acero) !important;
   border-color: var(--azul-acero) !important;
   color: var(--blanco) !important;
 }
@@ -913,7 +857,6 @@ color:var(--crema)!important;
 .btn-outline-light {
   color: var(--crema) !important;
   border-color: rgba(253,240,213,0.6) !important;
-  font-size: 22px;
 }
 
 .btn-outline-light:hover {
@@ -922,7 +865,7 @@ color:var(--crema)!important;
 
 .badge-success { background: #2d6a4f !important; }
 .badge-danger  { background: var(--rojo-oscuro) !important; }
-.badge-info    { font-size: 22px; }
+.badge-info    { background: var(--azul-acero) !important; }
 .badge-warning { background: #b5850b !important; }
 
 .alert-danger {
@@ -986,92 +929,60 @@ color:var(--crema)!important;
   .section-crs { padding: 55px 0; }
 }
 
-
     </style>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-crs fixed-top">
 
-<div class="containerp">
+<div class="container mt-4">
 
+<h2>Formulario Categoria</h2>
 
+<form th:action="@{/admin/categorias/guardar}"
+th:object="${categoria}"
+method="post">
 
-<div class="collapse navbar-collapse justify-content-center" id="menuPrincipal">
+<input type="hidden" th:field="*{idCategoria}">
 
-<ul class="navbar-nav align-items-center">
-    
-    <a class="navbar-brand" th:href="@{/proyectoweb}">
-<i class="fas fa-door-open"></i> Proyecto Web
+<div class="mb-3">
+<label>Nombre</label>
+<input type="text"
+class="form-control"
+th:field="*{nombre}"
+required>
+</div>
+
+<div class="mb-3">
+<label>Descripcion</label>
+<input type="text"
+class="form-control"
+th:field="*{descripcion}">
+</div>
+
+<div class="form-check mb-3">
+
+<input type="checkbox"
+class="form-check-input"
+th:field="*{activo}">
+
+<label class="form-check-label">
+Activo
+</label>
+
+</div>
+
+<button type="submit" class="btn btn-success">
+Guardar
+</button>
+
+<a th:href="@{/admin/categorias}"
+class="btn btn-secondary">
+Cancelar
 </a>
 
-<li class="nav-item">
-<a class="nav-link" th:href="@{/proyectoweb}">Inicio</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" th:href="@{/proyectoweb/productos}">Productos</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" th:href="@{/proyectoweb/servicios}">Servicios</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" th:href="@{/proyectoweb/proyectos}">Proyectos</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" th:href="@{/proyectoweb/conocenos}">Conócenos</a>
-</li>
-
-<li class="nav-item">
-<a class="nav-link" th:href="@{/proyectoweb/contacto}">Contacto</a>
-</li>
-<li class="nav-item">
-    <a class="nav-link" th:href="@{/carrito/ver}">
-        <i class="fas fa-shopping-cart"></i> Carrito
-    </a>
-</li>
-<li class="nav-item" sec:authorize="hasRole('ADMIN')">
-<a class="nav-link" th:href="@{/admin/dashboard}">Edición</a>
-</li>
-
-<li class="nav-item ml-lg-2">
-<a class="btn btn-register" th:href="@{/proyectoweb/registro}">Registrarse</a>
-</li>
-
-<li class="nav-item ml-lg-3">
-<a class="btn btn-login" th:href="@{/login}">Iniciar sesión</a>
-</li>
-
-
-
-</ul>
+</form>
 
 </div>
-</div>
-</nav>
 
-<section class="page-banner">
-    <div class="container">
-        <h1 class="font-weight-bold">Servicios</h1>
-        <p>Suministro, instalación y pintura profesional.</p>
-    </div>
-</section>
-
-<section class="section-crs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 mb-4"><div class="card border-0 shadow-sm h-100"><div class="card-body"><h4>Suministro de puertas</h4><p>Puertas metálicas, blindadas y comerciales de alta calidad.</p></div></div></div>
-            <div class="col-md-6 mb-4"><div class="card border-0 shadow-sm h-100"><div class="card-body"><h4>Suministro de herrajes</h4><p>Herrajes certificados bajo norma UL para diferentes proyectos.</p></div></div></div>
-            <div class="col-md-6 mb-4"><div class="card border-0 shadow-sm h-100"><div class="card-body"><h4>Instalación</h4><p>Trabajo técnico realizado por personal capacitado y con experiencia.</p></div></div></div>
-            <div class="col-md-6 mb-4"><div class="card border-0 shadow-sm h-100"><div class="card-body"><h4>Pintura</h4><p>Acabados duraderos, uniformes y profesionales para cada proyecto.</p></div></div></div>
-        </div>
-    </div>
-</section>
-
-<footer class="footer-crs">
-    <div class="container text-center"><small>© 2026 Proyecto Web CRS Door</small></div>
-</footer>
 </body>
 </html>

@@ -34,6 +34,10 @@ public class Categoria implements Serializable {
     public Categoria() {
     }
 
+    public Categoria(Long idCategoria) {
+    this.idCategoria = idCategoria;
+    }
+
     public Categoria(Long idCategoria, String nombre, String descripcion, boolean activo) {
         this.idCategoria = idCategoria;
         this.nombre = nombre;

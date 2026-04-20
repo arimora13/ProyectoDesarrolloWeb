@@ -13,12 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         boton.addEventListener("click", function (event) {
 
-            const confirmar = confirm("¿Desea eliminar este producto del carrito?");
+            const confirmar = confirm("Desea eliminar este registro?");
 
             if (!confirmar) {
-
                 event.preventDefault();
-
             }
 
         });
@@ -26,4 +24,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
-

@@ -34,6 +34,11 @@
   --radio-lg:    16px;
 }
 
+.container{
+max-width:1200px;
+margin:auto;
+}
+
 /* ───── BASE ───── */
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
@@ -924,6 +929,12 @@ label {
     </style>
 </head>
 <body>
+    <section class="page-banner">
+    <div class="container">
+        <h1 class="font-weight-bold">Añadir Productos</h1>
+        
+    </div>
+</section>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-crs fixed-top">
     <div class="container">
         <a class="navbar-brand font-weight-bold" th:href="@{/proyectoweb}">
@@ -980,6 +991,10 @@ label {
                             </a>
                         </td>
                     </tr>
+                    
+                    <a th:href="@{/admin/dashboard}" class="btn btn-secondary">
+                            Volver
+                    </a>
 
                     <tr th:if="${#lists.isEmpty(usuarios)}">
                         <td colspan="7" class="text-center">No hay usuarios registrados.</td>

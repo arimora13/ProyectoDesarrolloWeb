@@ -51,6 +51,10 @@ public class ProductoServiceImpl implements ProductoService {
     public void saveProducto(Producto producto) {
         productoDao.save(producto);
     }
+    @Override
+    public List<Producto> buscarProductos(String nombre, Boolean activo, Long categoria) {
+        return productoDao.buscarProductos(nombre, activo, categoria);
+    }
 
     @Override
     @Transactional

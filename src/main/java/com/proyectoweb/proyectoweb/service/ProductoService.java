@@ -13,11 +13,14 @@ import java.util.List;
 public interface ProductoService {
 List<Producto> getProductos();
 
+
     List<Producto> getProductosActivos();
 
     List<Producto> buscarPorNombre(String nombre);
 
     Producto getProducto(Producto producto);
+    
+    List<Producto> buscarProductos(String nombre, Boolean activo, Long categoria);
 
     void saveProducto(Producto producto);
 

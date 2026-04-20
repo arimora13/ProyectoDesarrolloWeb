@@ -41,6 +41,10 @@ body {
   background: var(--blanco);
   padding-top: 80px;
 }
+.container{
+max-width:1200px;
+margin:auto;
+}
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Trebuchet MS', 'Gill Sans', sans-serif;
@@ -965,7 +969,7 @@ label {
                     <i class="fas fa-layer-group"></i>
                     <h4 class="font-weight-bold">Categorías</h4>
                     <p>Administrar categorías para organizar productos en la tienda.</p>
-                    <a href="#" class="btn btn-info text-white">Ir a categorías</a>
+                    <a th:href="@{/admin/categorias}" class="btn btn-info text-white">Ir a categorías</a>
                 </div>
             </div>
         </div>
