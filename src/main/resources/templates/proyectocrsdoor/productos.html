@@ -914,143 +914,108 @@ label {
     </style>
 </head>
 <body>
+
 <header th:replace="general/proyectocrsdoor_fragmentos :: header"></header>
- 
-        <section class="page-banner">
-<div class="container">
-<h1>Productos</h1>
-<p>Catálogo con búsqueda, filtros, categorías, disponibilidad y fichas técnicas.</p>
-</div>
+
+<!-- BANNER -->
+<section class="page-banner">
+    <div class="container">
+        <h1>Productos</h1>
+        <p>Catálogo con búsqueda, filtros, categorías, disponibilidad y fichas técnicas.</p>
+    </div>
 </section>
- 
-        <section class="section-crs">
-<div class="container">
-<div class="filter-bar mb-4">
-<div class="row">
-<div class="col-md-4 mb-3">
-<input type="text" class="form-control" placeholder="Buscar producto"/>
-</div>
-<div class="col-md-3 mb-3">
-<select class="form-control">
-<option>Categoría</option>
-<option>Puertas</option>
-<option>Herrajes</option>
-<option>Accesorios</option>
-</select>
-</div>
-<div class="col-md-3 mb-3">
-<select class="form-control">
-<option>Ordenar por</option>
-<option>Más recientes</option>
-<option>Precio menor a mayor</option>
-<option>Precio mayor a menor</option>
-</select>
-</div>
-<div class="col-md-2 mb-3">
-<select class="form-control">
-<option>Fuego</option>
-<option>Sí</option>
-<option>No</option>
-</select>
-</div>
-</div>
-</div>
- 
-                <div class="row">
-<div class="col-md-6 col-lg-4 mb-4">
-<div class="product-card h-100">
-<div class="product-image">Imagen</div>
-<span class="product-badge">Disponible</span>
-<h5>Puerta Cortafuego</h5>
-<p>Categoría: Puertas</p>
-<p>Resistencia al fuego: Sí</p>
-<p class="product-price">₡225000.00</p>
-<div class="d-flex">
-<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block mr-2">Ver detalle</a>
-<button class="btn btn-crs-outline btn-block">Agregar</button>
-</div>
-</div>
-</div>
- 
-                    <div class="col-md-6 col-lg-4 mb-4">
-<div class="product-card h-100">
-<div class="product-image">Imagen</div>
-<span class="product-badge">Stock bajo</span>
-<h5>Barra Antipánico UL</h5>
-<p>Categoría: Herrajes</p>
-<p>Resistencia al fuego: Sí</p>
-<p class="product-price">₡98000.00</p>
-<div class="d-flex">
-<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block mr-2">Ver detalle</a>
-<button class="btn btn-crs-outline btn-block">Agregar</button>
-</div>
-</div>
-</div>
- 
-                    <div class="col-md-6 col-lg-4 mb-4">
-<div class="product-card h-100">
-<div class="product-image">Imagen</div>
-<span class="product-badge">Disponible</span>
-<h5>Cerradura Comercial</h5>
-<p>Categoría: Herrajes</p>
-<p>Resistencia al fuego: No</p>
-<p class="product-price">₡32500.00</p>
-<div class="d-flex">
-<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block mr-2">Ver detalle</a>
-<button class="btn btn-crs-outline btn-block">Agregar</button>
-</div>
-</div>
-</div>
- 
-                    <div class="col-md-6 col-lg-4 mb-4">
-<div class="product-card h-100">
-<div class="product-image">Imagen</div>
-<span class="product-badge">Disponible</span>
-<h5>Bisagra Reforzada</h5>
-<p>Categoría: Accesorios</p>
-<p>Resistencia al fuego: No</p>
-<p class="product-price">₡14500.00</p>
-<div class="d-flex">
-<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block mr-2">Ver detalle</a>
-<button class="btn btn-crs-outline btn-block">Agregar</button>
-</div>
-</div>
-</div>
- 
-                    <div class="col-md-6 col-lg-4 mb-4">
-<div class="product-card h-100">
-<div class="product-image">Imagen</div>
-<span class="product-badge">Agotado</span>
-<h5>Placa de Pateo</h5>
-<p>Categoría: Accesorios</p>
-<p>Resistencia al fuego: No</p>
-<p class="product-price">₡18000.00</p>
-<div class="d-flex">
-<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block mr-2">Ver detalle</a>
-<button class="btn btn-crs-outline btn-block" disabled>Sin stock</button>
-</div>
-</div>
-</div>
- 
-                    <div class="col-md-6 col-lg-4 mb-4">
-<div class="product-card h-100">
-<div class="product-image">Imagen</div>
-<span class="product-badge">Disponible</span>
-<h5>Mirilla Certificada</h5>
-<p>Categoría: Accesorios</p>
-<p>Resistencia al fuego: Sí</p>
-<p class="product-price">₡22000.00</p>
-<div class="d-flex">
-<a th:href="@{/proyectocrsdoor/detalle-producto}" class="btn btn-crs btn-block mr-2">Ver detalle</a>
-<button class="btn btn-crs-outline btn-block">Agregar</button>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- CONTENIDO -->
+<section class="section-crs">
+    <div class="container">
+
+        <!-- FILTROS -->
+        <div class="filter-bar mb-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar producto"/>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <select class="form-control">
+                        <option>Categoría</option>
+                        <option>Puertas</option>
+                        <option>Herrajes</option>
+                        <option>Accesorios</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <select class="form-control">
+                        <option>Ordenar por</option>
+                        <option>Más recientes</option>
+                        <option>Precio menor a mayor</option>
+                        <option>Precio mayor a menor</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <select class="form-control">
+                        <option>Fuego</option>
+                        <option>Sí</option>
+                        <option>No</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUCTOS -->
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4"
+                 th:each="p : ${productos}">
+
+                <div class="product-card h-100">
+
+                  <img th:src="@{/img/{img}(img=${p.imagen})}"
+     class="product-real-image"
+     onerror="this.src='/img/default.jpg'">
+
+                    <div class="card-body">
+
+                        <span class="product-badge"
+                              th:text="${p.stock > 0 ? 'Disponible' : 'Agotado'}">
+                        </span>
+
+                        <!-- NOMBRE -->
+                        <h5 th:text="${p.nombre}"></h5>
+
+                        <!-- CATEGORÍA -->
+                        <p th:text="'Categoría: ' + ${p.categoria.nombre}"></p>
+<p th:text="${p.imagen}"></p>
+                        <!-- FUEGO -->
+                        <p th:text="'Resistencia al fuego: ' + (${p.resistenciaFuego} ? 'Sí' : 'No')}"></p>
+
+                        <!-- PRECIO -->
+                        <p class="product-price"
+                           th:text="'₡' + ${p.precio}"></p>
+
+                        <!-- BOTONES -->
+                        <div class="d-flex">
+                            <a th:href="@{/proyectocrsdoor/detalle-producto/{id}(id=${p.idProducto})}"
+                               class="btn btn-crs btn-block mr-2">
+                                Ver detalle
+                            </a>
+
+                            <button class="btn btn-crs-outline btn-block"
+                                    th:disabled="${p.stock == 0}">
+                                Agregar
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
 </section>
- 
-        <footer th:replace="general/proyectocrsdoor_fragmentos :: footer"></footer>
+
+<footer th:replace="general/proyectocrsdoor_fragmentos :: footer"></footer>
+
 </body>
 </html>
  
