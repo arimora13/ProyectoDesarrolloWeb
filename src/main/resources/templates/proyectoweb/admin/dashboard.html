@@ -6,6 +6,8 @@
     <title>Dashboard admin | Proyecto Web CRS Door</title>
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/webjars/font-awesome/css/all.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -39,11 +41,12 @@ body {
   font-family: 'Georgia', 'Times New Roman', serif;
   color: var(--texto);
   background: var(--blanco);
-  padding-top: 80px;
+  padding-top: 20px;
 }
 .container{
 max-width:1200px;
 margin:auto;
+text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -64,8 +67,9 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--crema) !important;
   font-family: 'Trebuchet MS', sans-serif;
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 27px;
   letter-spacing: 0.03em;
+   margin-left: 27px;
 }
 
 .navbar-crs .navbar-brand i {
@@ -929,7 +933,7 @@ label {
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-crs fixed-top">
-    <div class="container">
+    <div class="containerp">
         <a class="navbar-brand font-weight-bold" th:href="@{/proyectoweb}">
             <i class="fas fa-door-open mr-2"></i>Proyecto Web
         </a>
@@ -975,5 +979,10 @@ label {
         </div>
     </div>
 </section>
+    <footer class="footer-crs">
+    <div class="container text-center">
+        <small>© 2026 Proyecto Web CRS Door</small>
+    </div>
+</footer>
 </body>
 </html>

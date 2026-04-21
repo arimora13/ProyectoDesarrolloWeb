@@ -72,9 +72,30 @@ public class ProyectoWebController {
         return "proyectoweb/servicios";
     }
 
-    @GetMapping("/proyectoweb/proyectos")
-    public String proyectos(Model model) {
-        model.addAttribute("titulo", "Proyectos");
+   @GetMapping("/proyectoweb/proyectos")
+public String proyectos(Model model) {
+
+    String[] titles = {
+        "Proyecto - Tienda H&M",
+        "Proyecto - Hospitales",
+        "Proyecto - Amazon",
+        "Proyecto - COCINA",
+        "Proyectos McDonal's",
+        "Proyecto - INSS"
+    };
+
+    String[] descriptions = {
+        "Especificaciones: Placa de empuje, cerraduras y placa de pateo.",
+        "Especificaciones: Mirilla con cristal mallado certificado, placa de empuje, cerraduras y louver.",
+        "Especificaciones: Mirilla con cristal mallado certificado, cierra puertas, cerradura, bisagras y barra antipánico.",
+        "Especificaciones: Mirilla con cristal mallado certificado, placa de empuje con jaladera, cerradura y placa de pateo.",
+        "Especificación: Puerta metálica resistente instalada en sucursal McDonald's.",
+        "Especificaciones: Puerta corrediza, placa de pateo y placa de empuje con jaladera."
+    };
+
+    model.addAttribute("titles", titles);
+    model.addAttribute("descriptions", descriptions);
+
         return "proyectoweb/proyectos";
     }
 

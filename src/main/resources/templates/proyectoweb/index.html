@@ -8,6 +8,8 @@
 
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/webjars/font-awesome/css/all.min.css}" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -44,7 +46,7 @@
 
 body{
 font-family:'Lato',sans-serif;
-background:#095279;
+background:#003049;
 padding-top:25px;
 margin:0;
 color:#2c2c2c;
@@ -392,6 +394,7 @@ margin:auto;
   padding: 32px;
   border-left: 5px solid var(--rojo);
   box-shadow: var(--sombra-card);
+  margin-top:86px;
 }
 
 .feature-panel h3, .feature-panel h4 {
@@ -741,7 +744,7 @@ label {
 
 /* ───── SECCIONES ───── */
 .section-crs {
-  padding: 80px 0;
+  padding: 35px 0;
   background: var(--blanco);
 }
 
@@ -867,25 +870,207 @@ label {
   font-size: 0.9rem;
 }
 
-/* ───── FOOTER ───── */
+/* =========================
+   FOOTER GENERAL
+========================= */
+
 .footer-crs{
-background:var(--marino);
-color:rgba(253,240,213,0.85);
-padding:70px 0 30px;
-text-align:center;
+    background: linear-gradient(180deg, var(--marino), #001b2e);
+    color: var(--crema);
+    padding: 60px 0 30px 0;
+    font-size: 17px; /* 3px más grande aprox */
+    letter-spacing: 0.3px; /* texto más compacto */
 }
 
-.footer-crs .row{
-justify-content:center;
+/* columnas */
+.footer-crs .col-md-4{
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-.footer-crs a{
-color:var(--azul-acero)!important;
+/* =========================
+   TITULOS
+========================= */
+
+.footer-crs h5{
+    color: var(--blanco);
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 20px;
+    position: relative;
 }
 
-.footer-crs a:hover{
-color:var(--crema)!important;
+/* línea decorativa debajo del título */
+
+.footer-crs h5::after{
+    content: "";
+    display: block;
+    width: 35px;
+    height: 3px;
+    background: var(--rojo);
+    margin-top: 8px;
 }
+
+/* =========================
+   TEXTO
+========================= */
+
+.footer-crs p{
+    color: var(--gris-claro);
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* descripción empresa */
+
+.footer-crs .descripcion-footer{
+    max-width: 360px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.footer-crs ul{
+    padding: 0;
+}
+
+.footer-crs ul li{
+    margin-bottom: 8px;
+}
+
+.footer-crs ul li a{
+    text-decoration: none;
+    color: var(--gris-claro);
+    transition: all .3s ease;
+}
+
+.footer-crs ul li a:hover{
+    color: var(--rojo);
+    padding-left: 5px;
+}
+
+/* =========================
+   CONTACTO CON ICONOS
+========================= */
+
+.footer-contacto p{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-contacto i{
+    color: var(--rojo);
+    font-size: 18px;
+    width: 20px;
+}
+
+/* links dentro de contacto */
+
+.footer-contacto a{
+    color: var(--gris-claro);
+    text-decoration: none;
+}
+
+.footer-contacto a:hover{
+    color: var(--rojo);
+}
+
+/* =========================
+   LINEA DIVISORA
+========================= */
+
+.footer-crs hr{
+    border: none;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 30px 0;
+}
+
+/* =========================
+   COPYRIGHT
+========================= */
+
+.footer-crs small{
+    color: var(--gris-claro);
+    font-size: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width:768px){
+
+.footer-row{
+flex-direction:column;
+}
+
+
+.footer-crs{
+    text-align: center;
+}
+
+.footer-contacto p{
+    justify-content: center;
+}
+
+.footer-crs h5::after{
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+/* CONTENEDOR FOOTER */
+
+.footer-container{
+max-width: 1400px;
+margin: auto;
+}
+
+/* FILA */
+
+.footer-row{
+display: flex;
+justify-content: space-between;
+gap: 60px;
+flex-wrap: wrap;
+}
+
+/* COLUMNAS */
+
+.footer-col{
+flex: 1;
+min-width: 280px;
+}
+
+/* DESCRIPCIÓN */
+
+.descripcion-footer{
+max-width: 380px;
+}
+
+/* ENLACES */
+
+.footer-crs ul{
+padding:0;
+margin:0;
+}
+
+.footer-crs ul li{
+margin-bottom:8px;
+list-style:none;
+}
+
+/* CONTACTO */
+
+.footer-contacto p{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+
 /* ───── BOOTSTRAP OVERRIDES ───── */
 .btn-info {
   font-size: 22px;
@@ -901,6 +1086,7 @@ color:var(--crema)!important;
 .btn-outline-primary {
   color: var(--marino) !important;
   border-color: var(--marino) !important;
+  font-size: 19px;
 }
 
 .btn-outline-primary:hover {
@@ -923,10 +1109,10 @@ color:var(--crema)!important;
   background: rgba(253,240,213,0.12) !important;
 }
 
-.badge-success { background: #2d6a4f !important; }
-.badge-danger  { background: var(--rojo-oscuro) !important; }
+.badge-success { background: #2d6a4f !important; font: white;}
+.badge-danger  { background: var(--rojo-oscuro) !important; font: white;}
 .badge-info    { font-size: 22px; }
-.badge-warning { background: #b5850b !important; }
+.badge-warning { background: #b5850b !important; font: white;}
 
 .alert-danger {
   background: rgba(193,18,31,0.08);
@@ -995,7 +1181,7 @@ color:var(--crema)!important;
 <body>
 <nav class="navbar navbar-expand-lg navbar-crs fixed-top">
 
-<div class="container">
+<div class="containerp">
 
 
 
@@ -1003,10 +1189,10 @@ color:var(--crema)!important;
 
 <ul class="navbar-nav align-items-center">
     
+ 
     <a class="navbar-brand" th:href="@{/proyectoweb}">
 <i class="fas fa-door-open"></i> Proyecto Web
 </a>
-
 <li class="nav-item">
 <a class="nav-link" th:href="@{/proyectoweb}">Inicio</a>
 </li>
@@ -1034,7 +1220,7 @@ color:var(--crema)!important;
 
         <div class="ml-auto">
             <a th:href="@{/carrito/ver}" class="nav-link text-white">
-                <i class="fas fa-shopping-cart"></i> Carrito
+                <i class="fas fa-shopping-cart"></i>
             </a>
         </div>
 
@@ -1077,10 +1263,10 @@ color:var(--crema)!important;
             <div class="col-lg-6 mt-5 mt-lg-0">
                 <div class="hero-box p-4">
                     <div class="row text-center">
-                        <div class="col-6 mb-4"><div class="mini-stat"><i class="fas fa-door-open fa-2x mb-3"></i><h5>Puertas</h5><p class="mb-0">Metálicas, blindadas y comerciales</p></div></div>
-                        <div class="col-6 mb-4"><div class="mini-stat"><i class="fas fa-tools fa-2x mb-3"></i><h5>Herrajes</h5><p class="mb-0">Certificados y de alto desempeño</p></div></div>
-                        <div class="col-6"><div class="mini-stat"><i class="fas fa-hammer fa-2x mb-3"></i><h5>Instalación</h5><p class="mb-0">Trabajo técnico especializado</p></div></div>
-                        <div class="col-6"><div class="mini-stat"><i class="fas fa-paint-roller fa-2x mb-3"></i><h5>Pintura</h5><p class="mb-0">Acabados profesionales</p></div></div>
+                        <div class="col-6 mb-4"><div class="mini-stat"><i class="fas fa-door-open fa-2x mb-3" th:href="@{/proyectoweb/productos}"></i><h5>Puertas</h5><p class="mb-0">Metálicas, blindadas y comerciales</p></div></div>
+                        <div class="col-6 mb-4"><div class="mini-stat"><i class="fas fa-tools fa-2x mb-3" th:href="@{/proyectoweb/productos}"></i><h5>Herrajes</h5><p class="mb-0">Certificados y de alto desempeño</p></div></div>
+                        <div class="col-6"><div class="mini-stat"><i class="fas fa-hammer fa-2x mb-3" th:href="@{/proyectoweb/proyectos}"></i><h5>Instalación</h5><p class="mb-0">Trabajo técnico especializado</p></div></div>
+                        <div class="col-6"><div class="mini-stat"><i class="fas fa-paint-roller fa-2x mb-3" th:href="@{/proyectoweb/servicios}"></i><h5>Pintura</h5><p class="mb-0">Acabados profesionales</p></div></div>
                     </div>
                 </div>
             </div>
@@ -1108,7 +1294,7 @@ color:var(--crema)!important;
                         <p class="mb-1"><strong>Precio:</strong> ₡<span th:text="${#numbers.formatDecimal(p.precio,1,2)}">0.00</span></p>
                         <p class="mb-3"><strong>Stock:</strong> <span th:text="${p.stock}">0</span></p>
                         <div class="mt-auto">
-                            <a href="#" class="btn btn-info btn-block text-white">Ver detalle</a>
+                            <a th:href="@{/proyectoweb/productos}" class="btn btn-info btn-block text-white">Ver detalle</a>
                         </div>
                     </div>
                 </div>
@@ -1126,51 +1312,78 @@ color:var(--crema)!important;
                 <p>Ofrecemos una amplia gama de soluciones, incluyendo puertas metálicas, puertas blindadas de nivel, herrajes para puertas certificados bajo norma UL, chutes de basura y particiones sanitarias para baño.</p>
                 <a th:href="@{/proyectoweb/conocenos}" class="btn btn-outline-primary rounded-pill px-4">Leer más</a>
             </div>
-            <div class="col-lg-6">
-                <div class="feature-panel h-100 p-4 bg-white border">
-                    <h4 class="font-weight-bold mb-3">Lo que incluye el sistema</h4>
-                    <ul class="mb-0">
-                        <li>Registro de usuarios normales</li>
-                        <li>Login con Spring Security</li>
-                        <li>Administrador con mantenimiento de productos</li>
-                        <li>Catálogo dinámico desde base de datos</li>
-                        <li>Roles ADMIN y USER</li>
-                        <li>Gestión de imágenes y ficha técnica</li>
-                    </ul>
-                </div>
-            </div>
+            
         </div>
     </div>
 </section>
 
 <footer class="footer-crs mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <h5>Proyecto Web CRS Door</h5>
-                <p class="mb-0">Soluciones en puertas, herrajes, instalación y pintura para proyectos comerciales, arquitectónicos e industriales.</p>
+
+    <div class="container-fluid footer-container">
+
+        <div class="row footer-row">
+
+            <!-- COLUMNA 1 -->
+            <div class="col-md-4 footer-col">
+            <h5>Proyecto Web CRS Door</h5>
+
+            <p class="descripcion-footer">
+            Ofrecemos soluciones integrales en puertas, herrajes, instalación profesional y acabados de pintura para proyectos comerciales, arquitectónicos e industriales. Nuestro compromiso es brindar calidad, durabilidad y diseño funcional que se adapte a las necesidades de cada cliente y proyecto.
+            </p>
             </div>
-            <div class="col-md-4 mb-4">
+
+
+                <!-- COLUMNA 2 -->
+                <div class="col-md-4 footer-col">
+
                 <h5>Enlaces</h5>
+
                 <ul class="list-unstyled">
-                    <li><a th:href="@{/proyectoweb}">Inicio</a></li>
-                    <li><a th:href="@{/proyectoweb/productos}">Productos</a></li>
-                    <li><a th:href="@{/proyectoweb/servicios}">Servicios</a></li>
-                    <li><a th:href="@{/proyectoweb/proyectos}">Proyectos</a></li>
-                    <li><a th:href="@{/proyectoweb/contacto}">Contacto</a></li>
+                <li><a th:href="@{/proyectoweb}">Inicio</a></li>
+                <li><a th:href="@{/proyectoweb/productos}">Productos</a></li>
+                <li><a th:href="@{/proyectoweb/servicios}">Servicios</a></li>
+                <li><a th:href="@{/proyectoweb/proyectos}">Proyectos</a></li>
+                <li><a th:href="@{/proyectoweb/contacto}">Contacto</a></li>
                 </ul>
-            </div>
-            <div class="col-md-4 mb-4">
+
+                </div>
+
+
+                <!-- COLUMNA 3 -->
+                <div class="col-md-4 footer-col footer-contacto">
+
                 <h5>Contacto</h5>
-                <p class="mb-1">Hugo Bass Hernández</p>
-                <p class="mb-1"><a href="tel:+50663787050">+506 6378 7050</a></p>
-                <p class="mb-1"><a href="mailto:gerentegeneral@crsdoorhardwarecr.com">gerentegeneral@crsdoorhardwarecr.com</a></p>
-                <p class="mb-0">San José, Costa Rica</p>
+
+                <p><i class="fa-solid fa-user"></i> Hugo Bass Hernández</p>
+
+                <p>
+                <i class="fa-solid fa-phone"></i>
+                <a href="tel:+50663787050">+506 6378 7050</a>
+                </p>
+
+                <p>
+                <i class="fa-solid fa-envelope"></i>
+                <a href="mailto:gerentegeneral@crsdoorhardwarecr.com">
+                gerentegeneral@crsdoorhardwarecr.com
+                </a>
+                </p>
+
+                <p>
+                <i class="fa-solid fa-location-dot"></i>
+                San José, Costa Rica
+                </p>
+
+                </div>
+
+                </div>
+
+                <hr>
+
+            <div class="text-center">
+            <small>© 2026 Proyecto Web CRS Door. Todos los derechos reservados.</small>
             </div>
-        </div>
-        <hr class="bg-light"/>
-        <div class="text-center"><small>© 2026 Proyecto Web CRS Door. Todos los derechos reservados.</small></div>
-    </div>
+
+</div>
 </footer>
 </body>
 </html>
