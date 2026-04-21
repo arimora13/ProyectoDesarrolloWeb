@@ -19,6 +19,6 @@ public class LoginController {
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("titulo", "Login");
-    return "proyectoweb/login";
+        return "proyectoweb/login";
     }
 }

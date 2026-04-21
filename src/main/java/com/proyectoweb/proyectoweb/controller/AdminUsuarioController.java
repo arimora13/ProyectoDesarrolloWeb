@@ -64,6 +64,6 @@ public class AdminUsuarioController {
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(idUsuario);
         usuarioService.deleteUsuario(usuario);
-    return "redirect:/admin/usuarios/listado";
+        return "redirect:/admin/usuarios/listado";
     }
 }
