@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
     <head>
@@ -6,8 +7,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Servicios | Proyecto Web CRS Door</title>
         <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+<<<<<<< HEAD
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+=======
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
         <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
@@ -43,7 +47,11 @@
 
             body{
                 font-family:'Lato',sans-serif;
+<<<<<<< HEAD
                 background:#003049;
+=======
+                background:#095279;
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
                 padding-top:25px;
                 margin:0;
                 color:#2c2c2c;
@@ -53,10 +61,13 @@
                 max-width:1200px;
                 margin:auto;
             }
+<<<<<<< HEAD
             .containerp{
 max-width:1200px;
 margin:auto;
 }
+=======
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
 
             /* ───── NAVBAR ───── */
 
@@ -523,17 +534,28 @@ margin:auto;
             }
 
             .page-banner h1 {
+<<<<<<< HEAD
                 color: #fff;
                 font-size: 3.5rem;
                 margin-bottom: 10px;
                     text-align: center;
+=======
+                color: var(--crema);
+                font-size: 2.4rem;
+                margin-bottom: 10px;
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
             }
 
             .page-banner p {
                 color: rgba(253,240,213,0.75);
+<<<<<<< HEAD
                 font-size: 1.5rem;
                 margin: 0;
                     text-align: center;
+=======
+                font-size: 1.05rem;
+                margin: 0;
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
             }
 
             /* ───── AUTH ───── */
@@ -877,6 +899,7 @@ margin:auto;
                 font-size: 0.9rem;
             }
 
+<<<<<<< HEAD
             /* =========================
    FOOTER GENERAL
 ========================= */
@@ -1078,6 +1101,27 @@ gap:10px;
 }
 
 
+=======
+            /* ───── FOOTER ───── */
+            .footer-crs{
+                background:var(--marino);
+                color:rgba(253,240,213,0.85);
+                padding:70px 0 30px;
+                text-align:center;
+            }
+
+            .footer-crs .row{
+                justify-content:center;
+            }
+
+            .footer-crs a{
+                color:var(--azul-acero)!important;
+            }
+
+            .footer-crs a:hover{
+                color:var(--crema)!important;
+            }
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
             /* ───── BOOTSTRAP OVERRIDES ───── */
             .btn-info {
                 font-size: 22px;
@@ -1381,7 +1425,11 @@ gap:10px;
 
 
                         <a class="navbar-brand" th:href="@{/proyectoweb}">
+<<<<<<< HEAD
                            <i class="fas fa-door-open"></i>  Proyecto Web
+=======
+                            Proyecto Web
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
                         </a>
 
                         <li class="nav-item">
@@ -1409,7 +1457,11 @@ gap:10px;
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" th:href="@{/carrito/ver}">
+<<<<<<< HEAD
                                <i class="fas fa-shopping-cart"></i> 
+=======
+                                <i class="fas fa-shopping-cart"></i> Carrito
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
                             </a>
                         </li>
                         <li class="nav-item" sec:authorize="hasRole('ADMIN')">
@@ -1433,8 +1485,12 @@ gap:10px;
         </nav>
 
         <section class="page-banner">
+<<<<<<< HEAD
             
             <div class="containerp">
+=======
+            <div class="container">
+>>>>>>> c37c34d4d97e55472e8a8d73bbaa9d806662d9ff
                 <h1 class="font-weight-bold">Servicios</h1>
                 <p>Suministro, instalación y pintura profesional.</p>
             </div>
@@ -1519,6 +1575,7 @@ gap:10px;
             </div>
         </section>
 
+<<<<<<< HEAD
         <footer class="footer-crs mt-5">
 
     <div class="container-fluid footer-container">
