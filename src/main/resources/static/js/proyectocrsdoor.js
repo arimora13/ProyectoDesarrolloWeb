@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const confirmar = confirm("Desea eliminar este registro?");
 
             if (!confirmar) {
-                event.preventDefault();
+               event.preventDefault();
             }
 
         });
