@@ -6,9 +6,10 @@ package com.proyectoweb.proyectoweb.dao;
 
 /**
  *
- * @author Arianna Mora
+ * @author Grupo 7
  */
 import com.proyectoweb.proyectoweb.domain.Categoria;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CategoriaDao extends JpaRepository<Categoria, Long> {

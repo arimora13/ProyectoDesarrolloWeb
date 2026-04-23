@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  *
- * @author Donovan
+ * @author Grupo 7
  */
 @Controller
 @RequestMapping("/carrito")

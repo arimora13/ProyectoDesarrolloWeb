@@ -9,7 +9,9 @@ package com.proyectoweb.proyectoweb.domain;
  * @author Arianna Mora
  */
 import jakarta.persistence.*;
+
 import java.io.Serializable;
+
 import java.math.BigDecimal;
 
 @Entity

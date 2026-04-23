@@ -21,6 +21,7 @@ public class CarritoServiceImpl implements CarritoService {
     private HttpSession session;
 
     private List<ItemCarrito> getCarrito() {
+        
         List<ItemCarrito> carrito = (List<ItemCarrito>) session.getAttribute("carrito");
 
         if (carrito == null) {
@@ -37,6 +38,7 @@ public class CarritoServiceImpl implements CarritoService {
         List<ItemCarrito> carrito = getCarrito();
 
         for (ItemCarrito i : carrito) {
+            
             if (i.getProducto().getIdProducto().equals(item.getProducto().getIdProducto())) {
                 i.setCantidad(i.getCantidad() + 1);
                 return;
