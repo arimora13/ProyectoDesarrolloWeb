@@ -52,4 +52,5 @@ public class AdminCategoriaController {
         categoriaService.deleteCategoria(categoria);
         return "redirect:/admin/categorias";
     }
+
 }
