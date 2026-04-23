@@ -9,6 +9,7 @@ package com.proyectoweb.proyectoweb.domain;
  * @author Arianna Mora
  */
 import jakarta.persistence.*;
+
 import lombok.Data;
 
 @Data
