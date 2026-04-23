@@ -16,11 +16,9 @@ import org.springframework.data.repository.query.Param;
 public interface ProductoDao extends JpaRepository<Producto, Long> {
 
     List<Producto> findByActivoTrue();
-    
     List<Producto> findByActivo(boolean activo);
 
     List<Producto> findByActivoTrueAndNombreContainingIgnoreCase(String nombre);
-    
     List<Producto> findByCategoria_IdCategoria(Long idCategoria);
 
     @Query("""

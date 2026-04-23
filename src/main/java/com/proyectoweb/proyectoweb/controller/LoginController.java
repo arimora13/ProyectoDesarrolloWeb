@@ -6,7 +6,7 @@ package com.proyectoweb.proyectoweb.controller;
 
 /**
  *
- * @author Grupo 7
+ * @author Arianna Mora
  */
 
 import org.springframework.stereotype.Controller;
